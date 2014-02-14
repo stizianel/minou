@@ -1,0 +1,35 @@
+<h1>Listing timesheets</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Anno</th>
+      <th>Mese</th>
+      <th>Stato</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @timesheets.each do |timesheet| %>
+      <tr>
+        <td><%= timesheet.id %></td>
+        <td><%= timesheet.year %></td>
+        <td><%= timesheet.month %></td>
+        <td><%= timesheet.status %></td>
+        <td><%= timesheet.user_id %></td>
+        <td><%= link_to 'Vedi', controller: "timedays", action: "index", foglio: timesheet.id  %></td>
+        <td><%= link_to 'Edit', edit_timesheet_path(timesheet) %></td>
+        <td><%= link_to 'Destroy', timesheet, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Timesheet', new_timesheet_path %>

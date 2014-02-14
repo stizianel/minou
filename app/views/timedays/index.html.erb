@@ -1,0 +1,43 @@
+<h1>Listing timedays</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Giorno</th>
+      <th>Cod.1</th>
+      <th>Ore 1</th>
+      <th>Cod.2</th>
+      <th>Ore 2</th>
+      <th>Cod.3</th>
+      <th>Ore 3</th>
+      <th>Timesheet</th>
+      <th>Note</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @timedays.each do |timeday| %>
+      <tr>
+        <td><%= timeday.day %></td>
+        <td><%= timeday.code1 %></td>
+        <td><%= timeday.hour1 %></td>
+        <td><%= timeday.code2 %></td>
+        <td><%= timeday.hour2 %></td>
+        <td><%= timeday.code3 %></td>
+        <td><%= timeday.hour3 %></td>
+        <td><%= timeday.timesheet_id %></td>
+        <td><%= timeday.note %></td>
+        <td><%= link_to 'Show', timeday %></td>
+        <td><%= link_to 'Edit', edit_timeday_path(timeday) %></td>
+        <td><%= link_to 'Destroy', timeday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Timeday', new_timeday_path %>

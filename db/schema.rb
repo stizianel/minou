@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214142127) do
+ActiveRecord::Schema.define(version: 20140214172633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "timecodes", force: true do |t|
+    t.string   "descr"
+    t.string   "typo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "timedays", force: true do |t|
+    t.date     "day"
+    t.integer  "code1"
+    t.integer  "hour1"
+    t.integer  "code2"
+    t.integer  "hour2"
+    t.integer  "code3"
+    t.integer  "hour3"
+    t.integer  "timesheet_id"
+    t.string   "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "timesheets", force: true do |t|
+    t.integer  "year"
+    t.integer  "month"
+    t.string   "status"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

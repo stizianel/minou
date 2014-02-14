@@ -1,0 +1,29 @@
+<h1>Listing timecodes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descr</th>
+      <th>Typo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @timecodes.each do |timecode| %>
+      <tr>
+        <td><%= timecode.descr %></td>
+        <td><%= timecode.typo %></td>
+        <td><%= link_to 'Show', timecode %></td>
+        <td><%= link_to 'Edit', edit_timecode_path(timecode) %></td>
+        <td><%= link_to 'Destroy', timecode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Timecode', new_timecode_path %>

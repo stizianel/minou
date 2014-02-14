@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descr:</strong>
+  <%= @timecode.descr %>
+</p>
+
+<p>
+  <strong>Typo:</strong>
+  <%= @timecode.typo %>
+</p>
+
+<%= link_to 'Edit', edit_timecode_path(@timecode) %> |
+<%= link_to 'Back', timecodes_path %>

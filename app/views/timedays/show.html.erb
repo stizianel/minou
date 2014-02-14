@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @timeday.day %>
+</p>
+
+<p>
+  <strong>Code1:</strong>
+  <%= @timeday.code1 %>
+</p>
+
+<p>
+  <strong>Hour1:</strong>
+  <%= @timeday.hour1 %>
+</p>
+
+<p>
+  <strong>Code2:</strong>
+  <%= @timeday.code2 %>
+</p>
+
+<p>
+  <strong>Hour2:</strong>
+  <%= @timeday.hour2 %>
+</p>
+
+<p>
+  <strong>Code3:</strong>
+  <%= @timeday.code3 %>
+</p>
+
+<p>
+  <strong>Hour3:</strong>
+  <%= @timeday.hour3 %>
+</p>
+
+<p>
+  <strong>Timesheet:</strong>
+  <%= @timeday.timesheet_id %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @timeday.note %>
+</p>
+
+<%= link_to 'Edit', edit_timeday_path(@timeday) %> |
+<%= link_to 'Back', timedays_path %>
