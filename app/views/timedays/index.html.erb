@@ -20,24 +20,49 @@
 
   <tbody>
     <% @timedays.each do |timeday| %>
-      <tr>
-        <td><%= timeday.day %></td>
-        <td><%= timeday.codice1.descr %></td>
-        <td><%= timeday.hour1 %></td>
-        <td><%= unless timeday.codice2.nil?
-                timeday.codice2.descr
-                end%></td>
-        <td><%= timeday.hour2 %></td>
-        <td><%= unless timeday.codice3.nil?
-                timeday.codice3.descr 
-                end%></td>
-        <td><%= timeday.hour3 %></td>
-        <td><%= timeday.timesheet_id %></td>
-        <td><%= timeday.note %></td>
-        <td><%= link_to 'Show', timeday %></td>
-        <td><%= link_to 'Edit', edit_timeday_path(timeday) %></td>
-        <td><%= link_to 'Destroy', timeday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if timeday.day.wday == 0 or timeday.day.wday == 6 %>
+        <tr class="warning">
+          <td><%= timeday.day %></td>
+          <td><%= unless timeday.codice1.nil?
+                  timeday.codice1.descr
+                  end%></td>
+          <td><%= timeday.hour1 %></td>
+          <td><%= unless timeday.codice2.nil?
+                  timeday.codice2.descr
+                  end%></td>
+          <td><%= timeday.hour2 %></td>
+          <td><%= unless timeday.codice3.nil?
+                  timeday.codice3.descr 
+                  end%></td>
+          <td><%= timeday.hour3 %></td>
+          <td><%= timeday.timesheet_id %></td>
+          <td><%= timeday.note %></td>
+          <td><%= link_to 'Show', timeday %></td>
+          <td><%= link_to 'Edit', edit_timeday_path(timeday) %></td>
+          <td><%= link_to 'Destroy', timeday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% else %>
+        <tr class="info">
+          <td><%= timeday.day %></td>
+          <td><%= unless timeday.codice1.nil?
+                  timeday.codice1.descr
+                  end%></td>
+          <td><%= timeday.hour1 %></td>
+          <td><%= unless timeday.codice2.nil?
+                  timeday.codice2.descr
+                  end%></td>
+          <td><%= timeday.hour2 %></td>
+          <td><%= unless timeday.codice3.nil?
+                  timeday.codice3.descr 
+                  end%></td>
+          <td><%= timeday.hour3 %></td>
+          <td><%= timeday.timesheet_id %></td>
+          <td><%= timeday.note %></td>
+          <td><%= link_to 'Show', timeday %></td>
+          <td><%= link_to 'Edit', edit_timeday_path(timeday) %></td>
+          <td><%= link_to 'Destroy', timeday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
