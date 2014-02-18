@@ -19,6 +19,7 @@ class TimecodesController < ApplicationController
 
   # GET /timecodes/1/edit
   def edit
+    @timecodes = Timecode.all
   end
 
   # POST /timecodes

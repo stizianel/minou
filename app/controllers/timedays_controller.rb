@@ -6,7 +6,7 @@ class TimedaysController < ApplicationController
  
   def index
     stefa = Timesheet.find_by id: params[:foglio]
-    @timedays = stefa.timedays
+    @timedays = stefa.timedays.order(:day)
   end
 
   # GET /timedays/1

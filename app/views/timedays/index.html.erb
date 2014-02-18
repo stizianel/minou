@@ -22,11 +22,15 @@
     <% @timedays.each do |timeday| %>
       <tr>
         <td><%= timeday.day %></td>
-        <td><%= timeday.code1 %></td>
+        <td><%= timeday.codice1.descr %></td>
         <td><%= timeday.hour1 %></td>
-        <td><%= timeday.code2 %></td>
+        <td><%= unless timeday.codice2.nil?
+                timeday.codice2.descr
+                end%></td>
         <td><%= timeday.hour2 %></td>
-        <td><%= timeday.code3 %></td>
+        <td><%= unless timeday.codice3.nil?
+                timeday.codice3.descr 
+                end%></td>
         <td><%= timeday.hour3 %></td>
         <td><%= timeday.timesheet_id %></td>
         <td><%= timeday.note %></td>
