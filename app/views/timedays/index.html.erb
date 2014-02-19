@@ -1,4 +1,4 @@
-<h1>Listing timedays</h1>
+<h1>Timesheet<span> mese di </span><span><%= @stefa.mese %></span></h1>
 
 <table class="table table-striped">
   <thead>
@@ -22,7 +22,7 @@
     <% @timedays.each do |timeday| %>
       <% if timeday.day.wday == 0 or timeday.day.wday == 6 %>
         <tr class="warning">
-          <td><%= timeday.day %></td>
+          <td><%= timeday.giorno + ' ' + timeday.day.strftime("%d/%m/%Y")  %></td>
           <td><%= unless timeday.codice1.nil?
                   timeday.codice1.descr
                   end%></td>
@@ -43,7 +43,7 @@
         </tr>
       <% else %>
         <tr class="info">
-          <td><%= timeday.day %></td>
+          <td><%= timeday.giorno + ' ' + timeday.day.strftime("%d/%m/%Y") %></td>
           <td><%= unless timeday.codice1.nil?
                   timeday.codice1.descr
                   end%></td>
