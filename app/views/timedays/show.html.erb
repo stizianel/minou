@@ -46,4 +46,5 @@
 </p>
 
 <%= link_to 'Edit', edit_timeday_path(@timeday) %> |
-<%= link_to 'Back', timedays_path %>
+<%= link_to 'Back', controller: "timedays", action: "index", foglio: @timeday.timesheet_id %>
+

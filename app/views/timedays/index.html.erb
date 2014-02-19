@@ -37,9 +37,7 @@
           <td><%= timeday.hour3 %></td>
           <td><%= timeday.timesheet_id %></td>
           <td><%= timeday.note %></td>
-          <td><%= link_to 'Show', timeday %></td>
-          <td><%= link_to 'Edit', edit_timeday_path(timeday) %></td>
-          <td><%= link_to 'Destroy', timeday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Aggiorna', edit_timeday_path(timeday) %></td>
         </tr>
       <% else %>
         <tr class="info">
@@ -58,9 +56,7 @@
           <td><%= timeday.hour3 %></td>
           <td><%= timeday.timesheet_id %></td>
           <td><%= timeday.note %></td>
-          <td><%= link_to 'Show', timeday %></td>
-          <td><%= link_to 'Edit', edit_timeday_path(timeday) %></td>
-          <td><%= link_to 'Destroy', timeday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Aggiorna', edit_timeday_path(timeday) %></td>
         </tr>
       <% end %>
     <% end %>
