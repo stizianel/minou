@@ -5,7 +5,11 @@ class TimesheetsController < ApplicationController
   # GET /timesheets
   # GET /timesheets.json
   def index
-    @timesheets = Timesheet.where(user_id: current_user.id)
+    if current_user.admin?
+      @timesheets = Timesheet.all.order(:year, :month)
+    else
+      @timesheets = Timesheet.where(user_id: current_user.id)
+    end
   end
 
   # GET /timesheets/1
