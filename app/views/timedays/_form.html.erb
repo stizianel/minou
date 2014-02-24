@@ -4,11 +4,11 @@
   <div class="form-inputs">
     <%= f.input :day %>
     <%= f.association :codice1, label_method: :descr %>
-    <%= f.input :hour1 %>
+    <%= f.input :hour1, label: "Ore 1" %>
     <%= f.association :codice2, label_method: :descr %>
-    <%= f.input :hour2 %>
+    <%= f.input :hour2, label: "Ore 2" %>
     <%= f.association :codice3, label_method: :descr %>
-    <%= f.input :hour3 %>
+    <%= f.input :hour3, label: "Ore 3" %>
     <%= f.input :timesheet_id %>
     <%= f.input :note %>
   </div>
