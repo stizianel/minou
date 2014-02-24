@@ -1,4 +1,4 @@
-<h1>Listing timesheets</h1>
+<h1>Elenco timesheets di <span><%= current_user.name %></span></h1>
 
 <table class="table table-striped">
   <thead>
@@ -7,7 +7,6 @@
       <th>Anno</th>
       <th>Mese</th>
       <th>Stato</th>
-      <th>User</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,12 +18,10 @@
       <tr>
         <td><%= timesheet.id %></td>
         <td><%= timesheet.year %></td>
-        <td><%= timesheet.month %></td>
+        <td><%= timesheet.mese %></td>
         <td><%= timesheet.status %></td>
-        <td><%= timesheet.user_id %></td>
-        <td><%= link_to 'Vedi', controller: "timedays", action: "index", foglio: timesheet.id  %></td>
-        <td><%= link_to 'Edit', edit_timesheet_path(timesheet) %></td>
-        <td><%= link_to 'Destroy', timesheet, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+        <td><%= link_to 'Aggiorna', controller: "timedays", action: "index", foglio: timesheet.id  %></td> 
+        <td><%= link_to 'Chiudi', edit_timesheet_path(timesheet) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Timesheet', new_timesheet_path %>
+

@@ -8,7 +8,7 @@ class TimesheetsController < ApplicationController
     if current_user.admin?
       @timesheets = Timesheet.all.order(:year, :month)
     else
-      @timesheets = Timesheet.where(user_id: current_user.id)
+      @timesheets = Timesheet.where(user_id: current_user.id).order(:year, :month)
     end
   end
 

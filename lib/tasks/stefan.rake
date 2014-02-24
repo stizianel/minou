@@ -11,12 +11,14 @@ namespace :stefan do
   task :cartellino => :environment do
   	puts "digita utente"
   	utente = STDIN.gets.chomp
+    u = User.where(email: utente).take
+    puts u.name
   	puts "digita anno"
   	anno = STDIN.gets.chomp
   	puts "digita mese in numero"
   	mese = STDIN.gets.chomp
   	t = Timesheet.new
-  	t.user_id = utente.to_i
+  	t.user_id = u.id
   	t.year    = anno.to_i
     t.month   = mese.to_i
     t.status  = 'open'
