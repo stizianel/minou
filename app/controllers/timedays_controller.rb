@@ -71,6 +71,6 @@ class TimedaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timeday_params
-      params.require(:timeday).permit(:day, :code1, :hour1, :code2, :hour2, :code3, :hour3, :timesheet_id, :note)
+      params.require(:timeday).permit(:day, :code1, :hour1, :code2, :hour2, :code3, :hour3, :timesheet_id, :note, :cust1, :cust2, :cust3, :km1, :km2, :km3)
     end
 end

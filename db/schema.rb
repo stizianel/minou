@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220104634) do
+ActiveRecord::Schema.define(version: 20140310111208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "codfisc"
+    t.string   "child_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "timecodes", force: true do |t|
     t.string   "descr"
@@ -35,6 +46,12 @@ ActiveRecord::Schema.define(version: 20140220104634) do
     t.string   "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cust1"
+    t.integer  "cust2"
+    t.integer  "cust3"
+    t.integer  "km1"
+    t.integer  "km2"
+    t.integer  "km3"
   end
 
   create_table "timesheets", force: true do |t|

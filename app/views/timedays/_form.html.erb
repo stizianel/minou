@@ -1,16 +1,28 @@
 <%= simple_form_for(@timeday) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
+  <div class="form-inline"> 
     <%= f.input :day %>
-    <%= f.association :codice1, label_method: :descr %>
-    <%= f.input :hour1, label: "Ore 1" %>
-    <%= f.association :codice2, label_method: :descr %>
-    <%= f.input :hour2, label: "Ore 2" %>
-    <%= f.association :codice3, label_method: :descr %>
-    <%= f.input :hour3, label: "Ore 3" %>
-    <%= f.input :timesheet_id %>
-    <%= f.input :note %>
+    <table class="table-condensed">
+    <td><%= f.association :codice1, label_method: :descr %></td>
+    <td><%= f.input :hour1, label: "Ore 1" %></td>
+    <td><%= f.input :km1, label: "Km 1" %></td>
+    <td><%= f.association :cliente1, label_method: :name %></td>
+  </table>
+  <p>
+  <table class="table-condensed">
+    <td><%= f.association :codice2, label_method: :descr %></td>
+    <td><%= f.input :hour2, label: "Ore 2" %></td>
+    <td><%= f.input :km2, label: "Km 2" %></td>
+    <td><%= f.association :cliente2, label_method: :name %></td>
+  </table>
+  <p>
+  <table class="table-condensed">
+    <td><%= f.association :codice3, label_method: :descr %></td>
+    <td><%= f.input :hour3, label: "Ore 3" %></td>
+    <td><%= f.input :km3, label: "Km 3" %></td>
+    <td><%= f.association :cliente3, label_method: :name %></td>
+  </table
+  <%= f.input :note %>
   </div>
 
   <div class="form-actions">

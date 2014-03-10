@@ -1,5 +1,4 @@
 class TimesheetsController < ApplicationController
-  before_filter :authenticate_user!
   before_action :set_timesheet, only: [:show, :edit, :update, :destroy]
 
   # GET /timesheets
