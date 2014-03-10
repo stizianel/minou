@@ -10,5 +10,8 @@ Minou::Application.routes.draw do
   root :to => "home#index"
   devise_for :users, :controllers => {:registrations => "registrations"}
 
-  resources :users
+  scope "/admin" do
+  	resources :users
+  end
+ 
 end

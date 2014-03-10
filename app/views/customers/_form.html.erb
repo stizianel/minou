@@ -1,13 +1,13 @@
 <%= simple_form_for(@customer) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :city %>
-    <%= f.input :postal_code %>
-    <%= f.input :codfisc %>
-    <%= f.input :child_name %>
+  <div class="form-inline">
+    <%= f.input :name, :label => "nome" %>
+    <%= f.input :address, :label => "indirizzo" %>
+    <%= f.input :city, :label => "Città"  %>
+    <%= f.input :postal_code, :label => "CAP" %>
+    <%= f.input :codfisc, :label => "Cod.Fiscale" %>
+    <%= f.input :child_name, :label => "Nome del Bambino" %>
   </div>
 
   <div class="form-actions">

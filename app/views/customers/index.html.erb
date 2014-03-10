@@ -1,14 +1,14 @@
-<h1>Listing customers</h1>
+<h1>Elenco Clienti</h1>
 
-<table>
+<table class="table table-condensed">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Postal code</th>
-      <th>Codfisc</th>
-      <th>Child name</th>
+      <th>Nome</th>
+      <th>Indirizzo</th>
+      <th>Città</th>
+      <th>CAP</th>
+      <th>Cod.fiscale</th>
+      <th>Nome del bambino</th>
       <th></th>
       <th></th>
       <th></th>
@@ -24,9 +24,9 @@
         <td><%= customer.postal_code %></td>
         <td><%= customer.codfisc %></td>
         <td><%= customer.child_name %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Vedi', customer %></td>
+        <td><%= link_to 'Aggiorna', edit_customer_path(customer) %></td>
+        <td><%= link_to 'Cancella', customer, method: :delete, data: { confirm: 'sei sicuro ?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Customer', new_customer_path %>
+<%= link_to 'Nuovo Cliente', new_customer_path %>

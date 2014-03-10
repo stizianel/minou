@@ -6,11 +6,13 @@
       <th>Giorno</th>
       <th>Cod.1</th>
       <th>Ore 1</th>
+      <th>Km. 1</th>
       <th>Cod.2</th>
       <th>Ore 2</th>
+      <th>Km. 2</th>
       <th>Cod.3</th>
       <th>Ore 3</th>
-      <th>Timesheet</th>
+      <th>Km. 3</th>
       <th>Note</th>
       <th></th>
       <th></th>
@@ -27,15 +29,17 @@
                   timeday.codice1.descr
                   end%></td>
           <td><%= timeday.hour1 %></td>
+          <td><%= timeday.km1 %></td>
           <td><%= unless timeday.codice2.nil?
                   timeday.codice2.descr
                   end%></td>
           <td><%= timeday.hour2 %></td>
+          <td><%= timeday.km2 %></td>
           <td><%= unless timeday.codice3.nil?
                   timeday.codice3.descr 
                   end%></td>
           <td><%= timeday.hour3 %></td>
-          <td><%= timeday.timesheet_id %></td>
+          <td><%= timeday.km3 %></td>
           <td><%= timeday.note %></td>
           <td><%= link_to 'Aggiorna', edit_timeday_path(timeday) %></td>
         </tr>
@@ -46,15 +50,17 @@
                   timeday.codice1.descr
                   end%></td>
           <td><%= timeday.hour1 %></td>
+          <td><%= timeday.km1 %></td>
           <td><%= unless timeday.codice2.nil?
                   timeday.codice2.descr
                   end%></td>
           <td><%= timeday.hour2 %></td>
+          <td><%= timeday.km2 %></td>
           <td><%= unless timeday.codice3.nil?
                   timeday.codice3.descr 
                   end%></td>
           <td><%= timeday.hour3 %></td>
-          <td><%= timeday.timesheet_id %></td>
+          <td><%= timeday.km3 %></td>
           <td><%= timeday.note %></td>
           <td><%= link_to 'Aggiorna', edit_timeday_path(timeday) %></td>
         </tr>

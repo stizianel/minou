@@ -1,6 +1,15 @@
-<%= form_for(@user) do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <br />
-  <%= f.submit "Update" %>
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+<div class="form-inline">
+  <%= f.input :email %>
+  <%= f.input :name %>
+  <%= f.input :level %>
+  <%= f.input :intext %>
+  </div>
+  <div class="form-actions">
+   <%= f.button :submit %>
+  </div>
+  <%= link_to 'Vedi', @user %> |
+  <%= link_to 'Indietro', users_path %>
+
 <% end %>

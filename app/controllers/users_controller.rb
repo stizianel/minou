@@ -1,15 +1,13 @@
 class UsersController < ApplicationController
-
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-  	@users = User.all
   end
 
   def update
@@ -31,7 +29,7 @@ class UsersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def timecode_params
-      params.require(:user).permit(:email, :name)
+    def user_params
+      params.require(:user).permit(:email, :name, :level, :intext)
     end
 end

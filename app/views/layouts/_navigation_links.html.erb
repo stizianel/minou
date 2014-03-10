@@ -15,4 +15,5 @@
 <% if current_user.try(:admin?) %> 
 	<li><%= link_to 'Codici', timecodes_path %></li>
 	<li><%= link_to 'Utenti', users_path %></li>
+	<li><%= link_to 'Clienti', customers_path %></li>
 <% end %>
