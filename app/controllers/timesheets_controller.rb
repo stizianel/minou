@@ -4,10 +4,13 @@ class TimesheetsController < ApplicationController
   # GET /timesheets
   # GET /timesheets.json
   def index
+    current_year = Time.now.year
+    current_month = Time.now.month
     if current_user.admin?
-      @timesheets = Timesheet.all.order(:year, :month)
+      @timesheets = Timesheet.where("year <= ? and month <= ?", current_year, current_month).order(:year, :month)
     else
-      @timesheets = Timesheet.where(user_id: current_user.id).order(:year, :month)
+      @timesheets = Timesheet.where("user_id = ? and year <= ? and month <= ?", 
+                    current_user.id, current_year, current_month).order(:year, :month)
     end
   end
 

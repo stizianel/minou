@@ -16,7 +16,7 @@
   <tbody>
     <% @timesheets.each do |timesheet| %>
       <tr>
-        <td><%= timesheet.id %></td>
+        <td><%= timesheet.user.name %></td>
         <td><%= timesheet.year %></td>
         <td><%= timesheet.mese %></td>
         <td><%= timesheet.status %></td>
