@@ -12,11 +12,19 @@ gem 'devise'
 gem 'pg'
 gem 'simple_form'
 gem 'rails-i18n'
+#deploy with capistrano 3.1
+gem 'rake'
+gem 'capistrano', '~> 3.0', require: false, group: :development
+gem 'capistrano-rbenv'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'hub', :require=>nil
   gem 'rails_layout'
+  #deploy with capistrano 3.1
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
 end
 group :development, :test do
   gem 'rspec-rails'
