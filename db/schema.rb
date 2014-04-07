@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310114441) do
+ActiveRecord::Schema.define(version: 20140407174722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20140310114441) do
   create_table "timedays", force: true do |t|
     t.date     "day"
     t.integer  "code1"
-    t.integer  "hour1"
+    t.float    "hour1"
     t.integer  "code2"
-    t.integer  "hour2"
+    t.float    "hour2"
     t.integer  "code3"
-    t.integer  "hour3"
+    t.float    "hour3"
     t.integer  "timesheet_id"
     t.string   "note"
     t.datetime "created_at"
@@ -52,6 +52,10 @@ ActiveRecord::Schema.define(version: 20140310114441) do
     t.integer  "km1"
     t.integer  "km2"
     t.integer  "km3"
+    t.integer  "code4"
+    t.float    "hour4"
+    t.integer  "cust4"
+    t.integer  "km4"
   end
 
   create_table "timesheets", force: true do |t|

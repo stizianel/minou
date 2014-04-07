@@ -4,7 +4,7 @@ class TimecodesController < ApplicationController
   # GET /timecodes
   # GET /timecodes.json
   def index
-    @timecodes = Timecode.all.order(:typo)
+    @timecodes = Timecode.all.order(:descr)
   end
 
   # GET /timecodes/1

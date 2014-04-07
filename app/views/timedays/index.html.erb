@@ -13,6 +13,9 @@
       <th>Cod.3</th>
       <th>Ore 3</th>
       <th>Km. 3</th>
+      <th>Cod.4</th>
+      <th>Ore 4</th>
+      <th>Km. 4</th>
       <th>Note</th>
       <th></th>
       <th></th>
@@ -40,6 +43,11 @@
                   end%></td>
           <td><%= timeday.hour3 %></td>
           <td><%= timeday.km3 %></td>
+          <td><%= unless timeday.codice4.nil?
+                  timeday.codice4.descr 
+                  end%></td>
+          <td><%= timeday.hour4 %></td>
+          <td><%= timeday.km4 %></td>
           <td><%= timeday.note %></td>
           <td><%= link_to 'Aggiorna', edit_timeday_path(timeday) %></td>
         </tr>
@@ -61,6 +69,11 @@
                   end%></td>
           <td><%= timeday.hour3 %></td>
           <td><%= timeday.km3 %></td>
+          <td><%= unless timeday.codice4.nil?
+                  timeday.codice4.descr 
+                  end%></td>
+          <td><%= timeday.hour4 %></td>
+          <td><%= timeday.km4 %></td>
           <td><%= timeday.note %></td>
           <td><%= link_to 'Aggiorna', edit_timeday_path(timeday) %></td>
         </tr>
