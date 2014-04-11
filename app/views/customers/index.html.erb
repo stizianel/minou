@@ -4,12 +4,12 @@
   <thead>
     <tr>
       <th>Nome</th>
+      <th>Servizio</th>
       <th>Indirizzo</th>
       <th>Città</th>
       <th>CAP</th>
       <th>Cod.fiscale</th>
       <th>Nome del bambino</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -19,6 +19,7 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= customer.name %></td>
+        <td><%= customer.service %></td>
         <td><%= customer.address %></td>
         <td><%= customer.city %></td>
         <td><%= customer.postal_code %></td>

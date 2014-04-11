@@ -1,22 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @customer.name %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Servizio:</strong>
+  <%= @customer.service %>
+</p>
+
+<p>
+  <strong>Indirizzo:</strong>
   <%= @customer.address %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong>Località:</strong>
   <%= @customer.city %>
 </p>
 
 <p>
-  <strong>Postal code:</strong>
+  <strong>CAP:</strong>
   <%= @customer.postal_code %>
 </p>
 
@@ -26,9 +31,9 @@
 </p>
 
 <p>
-  <strong>Child name:</strong>
+  <strong>Nome bambino:</strong>
   <%= @customer.child_name %>
 </p>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to 'Aggiorna', edit_customer_path(@customer) %> |
+<%= link_to 'Indietro', customers_path %>
