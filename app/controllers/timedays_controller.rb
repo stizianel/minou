@@ -5,8 +5,11 @@ class TimedaysController < ApplicationController
   # GET /timedays.json
  
   def index
+    current_date = Date.today
     @stefa = Timesheet.find_by id: params[:foglio]
-    @timedays = @stefa.timedays.order(:day)
+    @timedays = @stefa.timedays.where("day <= ?",current_date).order(:day)
+    #@timeday1 = @stefa.timedays.order(:day)
+    #@timedays = @timeday1.where(:timedays.day <= ?", current_day)
   end
 
   # GET /timedays/1
@@ -44,7 +47,8 @@ class TimedaysController < ApplicationController
   def update
     respond_to do |format|
       if @timeday.update(timeday_params)
-        format.html { redirect_to @timeday, notice: 'Timeday was successfully updated.' }
+        format.html { redirect_to @timeday , notice: 'Timeday was successfully updated.' }
+        #format.html { redirect_to timedays_url, params[:foglio] => @timeday.timesheet_id}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
