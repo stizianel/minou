@@ -1,4 +1,14 @@
-<h1>Elenco timesheets di <span><%= current_user.name %></span></h1>
+<% if current_user.admin? %>
+  <%= form_tag timesheets_path, :method => 'get', :class => "form-search" do %>
+  <%= text_field_tag :user_id, nil, :placeholder => "Utente", 
+      :class => "input-medium search-query" %>
+  <%= text_field_tag :year, nil, :placeholder => "anno", 
+      :class => "input-medium search-query" %>
+  <%= submit_tag "Cerca!", :user_id => nil, :class => "btn" %>
+  <% end %>
+<% else %>
+  <h1>Elenco timesheets di <span><%= current_user.name %></span></h1>
+<% end %>
 
 <table class="table table-striped">
   <thead>

@@ -6,8 +6,17 @@ class TimesheetsController < ApplicationController
   def index
     current_year = Time.now.year
     current_month = Time.now.month
-    if current_user.admin?
-      @timesheets = Timesheet.where("year <= ? and month <= ?", current_year, current_month).order(:year, :month)
+    params[:user_id] = nil if params[:user_id] == "" 
+    params[:year] = nil if params[:year] == "" 
+
+    if current_user.admin? then
+      if params[:user_id] then
+        @timesheets = Timesheet.where(:user_id => params[:user_id]).order(:year, :month)
+      elsif params[:year] then
+        @timesheets = Timesheet.where(:year => params[:year]).order(:year, :month)
+      else
+        @timesheets = Timesheet.all.order(:year, :month)
+      end
     else
       @timesheets = Timesheet.where("user_id = ? and year <= ? and month <= ?", 
                     current_user.id, current_year, current_month).order(:year, :month)
