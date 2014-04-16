@@ -66,6 +66,25 @@ class TimedaysController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def statistics
+    @ore = Timeday.find_by_sql("select nome, year, month, descri, sum(ore)
+            from (
+            select user_id, year, month, code1 cod, hour1 ore, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
+            where a.timesheet_id = b.id and code1 is not null and b.user_id = u.id and a.code1 = t.id
+            union
+            select user_id, year, month, code2 cod, hour2 ore, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
+            where a.timesheet_id = b.id and code2 is not null and b.user_id = u.id and a.code1 = t.id
+            union
+            select user_id, year, month, code3 cod, hour3 ore, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
+            where a.timesheet_id = b.id and code3 is not null and b.user_id = u.id and a.code1 = t.id
+            union
+            select user_id, year, month, code4 cod, hour4 ore, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
+            where a.timesheet_id = b.id and code4 is not null and b.user_id = u.id and a.code1 = t.id
+            ) as foo
+            group by nome, year, month, descri
+            order by nome, year, month, descri")
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

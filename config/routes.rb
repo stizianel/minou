@@ -3,7 +3,9 @@ Minou::Application.routes.draw do
 
   resources :timecodes
 
-  resources :timedays
+  resources :timedays do
+  	get :statistics, on: :collection
+  end
 
   resources :timesheets
 

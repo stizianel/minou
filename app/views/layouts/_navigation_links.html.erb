@@ -14,4 +14,5 @@
 	<li><%= link_to 'Codici', timecodes_path %></li>
 	<li><%= link_to 'Utenti', users_path %></li>
 	<li><%= link_to 'Clienti', customers_path %></li>
+	<li><%= link_to 'Statistiche', controller: "timedays", action: "statistics", :method=>'get' %></li>
 <% end %>
