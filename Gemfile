@@ -16,6 +16,7 @@ gem 'rails-i18n'
 gem 'rake'
 gem 'capistrano', '~> 3.0', require: false, group: :development
 gem 'capistrano-rbenv'
+gem 'prawn'
 
 group :development do
   gem 'better_errors'

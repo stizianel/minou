@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :year %>
-    <%= f.input :month %>
-    <%= f.input :status %>
+    <%= f.input :year, label: "Anno" %>
+    <%= f.input :month, label: "Mese" %>
+    <%= f.input :status, label: "Stato", as: :boolean, boolean_style: :inline %>
     <%= f.input :user_id %>
   </div>
 

@@ -37,3 +37,6 @@
 
 <%= link_to 'Aggiorna', edit_customer_path(@customer) %> |
 <%= link_to 'Indietro', customers_path %>
+<p>
+<%= link_to 'Crea PDF', customer_path(@customer, :format => "pdf") %>
+</p>

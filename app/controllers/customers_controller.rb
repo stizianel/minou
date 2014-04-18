@@ -10,6 +10,17 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @customer = Customer.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do 
+        pdf = Prawn::Document.new
+        pdf.text "Hello World"
+        send_data pdf.render, :filename => "Cliente_#{@customer.id}.pdf",
+                              :type => "application/pdf",
+                              :disposition => "inline"
+      end
+    end
   end
 
   # GET /customers/new

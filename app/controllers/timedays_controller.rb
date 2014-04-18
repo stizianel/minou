@@ -47,7 +47,8 @@ class TimedaysController < ApplicationController
   def update
     respond_to do |format|
       if @timeday.update(timeday_params)
-        format.html { redirect_to @timeday , notice: 'Timeday was successfully updated.' }
+        #format.html { redirect_to @timeday , notice: 'Timeday was successfully updated.' }
+        format.html { redirect_to controller: "timedays", action: "index", foglio: @timeday.timesheet_id }
         #format.html { redirect_to timedays_url, params[:foglio] => @timeday.timesheet_id}
         format.json { head :no_content }
       else

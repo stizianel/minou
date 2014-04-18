@@ -17,7 +17,7 @@
       <th>Ore 4</th>
       <th>Km. 4</th>
       <th>Note</th>
-      <th></th>
+      <th>Totale</th>
       <th></th>
       <th></th>
     </tr>
@@ -49,6 +49,7 @@
           <td><%= timeday.hour4 %></td>
           <td><%= timeday.km4 %></td>
           <td><%= timeday.note %></td>
+          <td><%= timeday.tot_day %></td>
           <td><%= link_to 'Aggiorna', edit_timeday_path(timeday) %></td>
         </tr>
       <% else %>
@@ -75,6 +76,7 @@
           <td><%= timeday.hour4 %></td>
           <td><%= timeday.km4 %></td>
           <td><%= timeday.note %></td>
+          <td><%= timeday.tot_day %></td>
           <td><%= link_to 'Aggiorna', edit_timeday_path(timeday) %></td>
         </tr>
       <% end %>
@@ -84,4 +86,4 @@
 
 <br>
 
-<%= link_to 'New Timeday', new_timeday_path %>
+<%= link_to 'Indietro', timesheets_path %>
