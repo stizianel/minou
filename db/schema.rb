@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411134436) do
+ActiveRecord::Schema.define(version: 20140505151440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,13 +50,13 @@ ActiveRecord::Schema.define(version: 20140411134436) do
     t.integer  "cust1"
     t.integer  "cust2"
     t.integer  "cust3"
-    t.integer  "km1"
-    t.integer  "km2"
-    t.integer  "km3"
+    t.float    "km1"
+    t.float    "km2"
+    t.float    "km3"
     t.integer  "code4"
     t.float    "hour4"
     t.integer  "cust4"
-    t.integer  "km4"
+    t.float    "km4"
   end
 
   create_table "timesheets", force: true do |t|

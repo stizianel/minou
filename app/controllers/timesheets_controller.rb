@@ -26,6 +26,16 @@ class TimesheetsController < ApplicationController
   # GET /timesheets/1
   # GET /timesheets/1.json
   def show
+    @timesheet = Timesheet.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do 
+        pdf = TimesheetPdf.new(@timesheet)
+        send_data pdf.render, :filename => "Timesheet_#{@timesheet.id}.pdf",
+                              :type => "application/pdf",
+                              :disposition => "inline"
+      end
+    end
   end
 
   # GET /timesheets/new

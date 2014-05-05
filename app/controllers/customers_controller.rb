@@ -14,8 +14,7 @@ class CustomersController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do 
-        pdf = Prawn::Document.new
-        pdf.text "Hello World"
+        pdf = CustomerPdf.new
         send_data pdf.render, :filename => "Cliente_#{@customer.id}.pdf",
                               :type => "application/pdf",
                               :disposition => "inline"

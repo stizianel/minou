@@ -30,9 +30,10 @@
         <td><%= timesheet.year %></td>
         <td><%= timesheet.mese %></td>
         <td><%= timesheet.status %></td>
-        <td><%= timesheet.timedays.sum(:hour1) %></td>
+        <td><%= timesheet.timedays.sum(:hour1) + timesheet.timedays.sum(:hour2) + timesheet.timedays.sum(:hour3) + timesheet.timedays.sum(:hour4) %></td>
         <td><%= link_to 'Aggiorna', controller: "timedays", action: "index", foglio: timesheet.id  %></td> 
         <td><%= link_to 'Chiudi', edit_timesheet_path(timesheet) %></td>
+        <td><%= link_to 'crea PDF', timesheet_path(timesheet, :format => "pdf") %></td>
       </tr>
     <% end %>
   </tbody>
