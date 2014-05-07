@@ -30,4 +30,19 @@ class TimesheetPdf < Prawn::Document
       item.descr3, item.hour3, item.descr4, item.hour4, item.note]
   	end
   end
+
+  def timesheet_summary
+    move_down 20
+    font_size 12
+    table timesheet_summary_rows do
+      row(0).font_style = :bold
+      self.header = true
+    end
+  
+  end
+  def timesheet_summary_rows
+    [["nome", "anno", "mese", "voce", "ore"]] +
+    
+
+  end
 end
