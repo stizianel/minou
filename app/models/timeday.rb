@@ -69,4 +69,24 @@ class Timeday < ActiveRecord::Base
 	def tot_day
 		self.hour1.to_f + self.hour2.to_f + self.hour3.to_f + self.hour4.to_f
 	end
+	def descr1
+		if self.code1_p
+			self.codice1.descr
+		end
+	end
+	def descr2
+		if self.code2_p
+			self.codice2.descr
+		end
+	end
+	def descr3
+		if self.code3_p
+			self.codice3.descr
+		end
+	end
+	def descr4
+		if self.code4_p
+			self.codice4.descr
+		end
+	end
 end

@@ -13,18 +13,21 @@ class TimesheetPdf < Prawn::Document
 
   def timesheet_body
   	move_down 20
-  	table timedays_rows do
-  		row(0).font_style = :bold
-  		columns(1..3).align = :right
-  		self.row_colors = ["DDDDDD", "FFFFFF"]
-  		self.header = true
-  	end
+    font_size 8
+  	#table timedays_rows do
+  	#	row(0).font_style = :bold
+  	#	columns(1..3).align = :right
+  	#	self.row_colors = ["DDDDDD", "FFFFFF"]
+    # 	self.header = true
+    table timedays_rows, :cell_style => { :overflow => :shrink_to_fit, :min_font_size => 6}
+  	#end
   end
 
   def timedays_rows
-  	[["day", "code1", "hour1", "code2", "hour2", "note"]] +
+  	[["data", "causale1", "ore1", "causale2", "ore2", "causale3", "ore3", "causale4", "ore4", "note"]] +
   	@timesheet.timedays.order(:day).map do |item|
-  		[item.giorno + ' ' + item.day.strftime("%d/%m/%Y"), item.code1, item.hour1, item.code2, item.hour2, item.note]
+  		[item.giorno + ' ' + item.day.strftime("%d/%m/%Y"), item.descr1, item.hour1, item.descr2, item.hour2, 
+      item.descr3, item.hour3, item.descr4, item.hour4, item.note]
   	end
   end
 end
