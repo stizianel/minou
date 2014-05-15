@@ -31,10 +31,11 @@ class TimesheetPdf < Prawn::Document
   end
 
   def timedays_rows
-  	[["data", "causale1", "ore1", "causale2", "ore2", "causale3", "ore3", "causale4", "ore4", "note"]] +
+  	[["data", "causale1", "ore1", "km1", "causale2", "ore2", "km2", "causale3", "ore3", "km3", "causale4", 
+      "ore4", "km4", "note"]] +
   	@timesheet.timedays.order(:day).map do |item|
-  		[item.giorno + ' ' + item.day.strftime("%d/%m/%Y"), item.descr1, item.hour1, item.descr2, item.hour2, 
-      item.descr3, item.hour3, item.descr4, item.hour4, item.note]
+  		[item.giorno + ' ' + item.day.strftime("%d/%m/%Y"), item.descr1, item.hour1, item.km1, item.descr2, 
+        item.hour2, item.km2, item.descr3, item.hour3, item.km3, item.descr4, item.hour4, item.km4, item.note]
   	end
   end
 
