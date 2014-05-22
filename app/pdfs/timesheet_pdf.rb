@@ -1,7 +1,7 @@
 class TimesheetPdf < Prawn::Document
 
   def initialize(timesheet)
-  	super(:page_layout => :landscape)
+  	super(:page_layout => :landscape, :margin => [10,20,5,20])
   	@timesheet = timesheet
   	timesheet_header
   	timesheet_body
@@ -10,17 +10,18 @@ class TimesheetPdf < Prawn::Document
   end
 
   def timesheet_header
-  	text "Mese di #{@timesheet.mese} #{@timesheet.year} #{@timesheet.user.name}", size: 22, style: :bold
+  	text "Mese di #{@timesheet.mese} #{@timesheet.year} #{@timesheet.user.name}", size: 10, style: :bold
   end
 
   def timesheet_summary_header
+    start_new_page
     move_down 20
-    text "Riepilogo ore per causale", size: 12, style: :bold
+    text "Riepilogo ore e km per causale", size: 12, style: :bold
   end
 
   def timesheet_body
-  	move_down 20
-    font_size 8
+  	move_down 5
+    font_size 7
   	#table timedays_rows do
   	#	row(0).font_style = :bold
   	#	columns(1..3).align = :right
@@ -49,9 +50,9 @@ class TimesheetPdf < Prawn::Document
   
   end
   def timesheet_summary_rows
-    [["causale", "ore"]] +
+    [["causale", "ore", "km"]] +
     Timesheet.totali(@timesheet.id).map do |item|
-      [item[3], item[4]]
+      [item[3], item[4], item[5]]
     end
   end
 end

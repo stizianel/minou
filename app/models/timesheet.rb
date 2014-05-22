@@ -21,21 +21,21 @@ class Timesheet < ActiveRecord::Base
   end
 
   def self.totali(i_id)
-  	sql = "select nome, year, month, descri, sum(ore)
+  	sql = "select nome, year, month, descri, sum(ore), sum(km)
 				from (
-				select user_id, year, month, code1 cod, hour1 ore, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
+				select user_id, year, month, code1 cod, hour1 ore, km1 km, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
 				where a.timesheet_id = b.id and code1 is not null and b.user_id = u.id and a.code1 = t.id
 				and b.id = #{i_id}
 				union all
-				select user_id, year, month, code2 cod, hour2 ore, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
+				select user_id, year, month, code2 cod, hour2 ore, km2 km, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
 				where a.timesheet_id = b.id and code2 is not null and b.user_id = u.id and a.code2 = t.id
 				and b.id = #{i_id}
 				union all
-				select user_id, year, month, code3 cod, hour3 ore, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
+				select user_id, year, month, code3 cod, hour3 ore, km3 km, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
 				where a.timesheet_id = b.id and code3 is not null and b.user_id = u.id and a.code3 = t.id
 				and b.id = #{i_id}
 				union all
-				select user_id, year, month, code4 cod, hour4 ore, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
+				select user_id, year, month, code4 cod, hour4 ore, km4 km, u.name nome, t.descr descri from timedays a, timesheets b, users u, timecodes t
 				where a.timesheet_id = b.id and code4 is not null and b.user_id = u.id and a.code4 = t.id
 				and b.id = #{i_id}
 				) as foo
