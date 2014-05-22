@@ -1,7 +1,7 @@
 class TimesheetPdf < Prawn::Document
 
   def initialize(timesheet)
-  	super()
+  	super(:page_layout => :landscape)
   	@timesheet = timesheet
   	timesheet_header
   	timesheet_body
